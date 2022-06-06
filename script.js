@@ -12,7 +12,7 @@ for(let i = 0; i < 16; i++) {
             g.classList.add("grid-right-col");
         }
         
-        g.onmouseover = () => {g.setAttribute('style', 'background-color: black; width: calc(75vh / 16); height: calc(75vh / 16); border: solid black;')};
+        g.onmouseover = () => {g.style.backgroundColor = "black"};
         r.appendChild(g);
     }
 }
@@ -20,6 +20,6 @@ for(let i = 0; i < 16; i++) {
 document.getElementById("reset").onclick = () => {
     let gridSquares = document.querySelectorAll(".grid");
     for(let i = 0; i < gridSquares.length; i++) {
-        gridSquares[i].setAttribute('style', 'background-color: ; width: calc(75vh / 16); height: calc(75vh / 16); border: solid black;');
+        gridSquares[i].style.backgroundColor = "";
     }
 }
