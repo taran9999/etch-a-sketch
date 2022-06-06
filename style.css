@@ -19,5 +19,10 @@ body {
 .grid {
     width: calc(75vh / 16);
     height: calc(75vh / 16);
-    border: solid black;
+    border-right: solid black;
+    border-bottom: solid black;
+}
+
+.grid-right-col {
+    border-right: none;
 }

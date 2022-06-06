@@ -7,6 +7,11 @@ for(let i = 0; i < 16; i++) {
     for(let j = 0; j < 16; j++) {
         let g = document.createElement('div');
         g.classList.add("grid");
+
+        if(j == 15) {
+            g.classList.add("grid-right-col");
+        }
+        
         g.onmouseover = () => {g.setAttribute('style', 'background-color: black; width: calc(75vh / 16); height: calc(75vh / 16); border: solid black;')};
         r.appendChild(g);
     }
