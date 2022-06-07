@@ -9,20 +9,3 @@ body {
     width: 75vh;
     height: 75vh;
 }
-
-.grid-rows {
-    display: flex;
-    width: 75vh;
-    height: calc(75vh / 16);
-}
-
-.grid {
-    width: calc(75vh / 16);
-    height: calc(75vh / 16);
-    border-right: solid black;
-    border-bottom: solid black;
-}
-
-.grid-right-col {
-    border-right: none;
-}
