@@ -3,6 +3,13 @@ const gridContainer = document.getElementById('grid-container');
 drawGrid(16);
 
 document.getElementById("reset").onclick = () => {document.querySelectorAll(".grid").forEach((gridSquare) => gridSquare.style.backgroundColor = "");}
+document.getElementById("size").onclick = () => {
+    let s = prompt("Enter a grid size (max is 100).");
+    if(s != null && !isNaN(s) && s <= 100 && s > 0) {
+        clearGrid();
+        drawGrid(s);
+    }
+}
 
 function clearGrid() {
     document.querySelectorAll(".grid-rows").forEach((r) => r.remove());
