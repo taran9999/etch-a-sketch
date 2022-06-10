@@ -1,19 +1,29 @@
 const gridContainer = document.getElementById('grid-container');
+let currentSize = 16;
 
 drawGrid(16);
 
-document.getElementById("reset").onclick = () => {document.querySelectorAll(".grid").forEach((gridSquare) => gridSquare.style.backgroundColor = "");}
+document.getElementById("reset").onclick = function() {
+    clearGrid();
+    drawGrid(currentSize);
+}
 document.getElementById("size").onclick = () => {
     let s = prompt("Enter a grid size (max is 100).");
     if(s != null && !isNaN(s) && s <= 100 && s > 0) {
         clearGrid();
         drawGrid(s);
+        currentSize = s;
     }
 }
 
 function clearGrid() {
     document.querySelectorAll(".grid-rows").forEach((r) => r.remove());
-    document.querySelectorAll(".grid").forEach((g) => g.remove());
+    document.querySelectorAll(".grid").forEach(function(g) {
+        g.currentRed = g.red;
+        g.currentGreen = g.green;
+        g.currentBlue = g.blue;
+        g.remove();
+    });
 }
 
 function drawGrid(n) {
