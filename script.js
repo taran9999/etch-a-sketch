@@ -27,10 +27,23 @@ function drawGrid(n) {
             g.classList.add("grid");
             
             //create a random colour for this grid square
-            let red = Math.floor(Math.random() * 256);
-            let green = Math.floor(Math.random() * 256);
-            let blue = Math.floor(Math.random() * 256);
-            g.onmouseover = () => {g.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`};
+            g.red = Math.floor(Math.random() * 256);
+            g.green = Math.floor(Math.random() * 256);
+            g.blue = Math.floor(Math.random() * 256);
+            g.currentRed = g.red;
+            g.currentGreen = g.green;
+            g.currentBlue = g.blue;
+            g.onmouseover = () => {
+                document.querySelectorAll(".grid").forEach(function(gr) {
+                    if(gr.style.backgroundColor != "") {
+                        gr.currentRed -= 0.1 * gr.red;
+                        gr.currentGreen -= 0.1 * gr.green;
+                        gr.currentBlue -= 0.1 * gr.blue;
+                        gr.style.backgroundColor = `rgb(${gr.currentRed}, ${gr.currentGreen}, ${gr.currentBlue})`;
+                    }
+                })
+                g.style.backgroundColor = `rgb(${g.red}, ${g.green}, ${g.blue})`;
+            };
             r.appendChild(g);
         }
     }
