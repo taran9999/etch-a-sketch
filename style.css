@@ -5,7 +5,8 @@ body {
 }
 
 #grid-container {
-    border: solid black;
+    border-top: solid black;
+    border-left: solid black;
     width: 75vh;
     height: 75vh;
 }

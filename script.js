@@ -25,12 +25,12 @@ function drawGrid(n) {
         for(let j = 0; j < n; j++) {
             let g = document.createElement('div');
             g.classList.add("grid");
-    
-            if(j == n - 1) {
-                g.classList.add("grid-right-col");
-            }
             
-            g.onmouseover = () => {g.style.backgroundColor = "black"};
+            //create a random colour for this grid square
+            let red = Math.floor(Math.random() * 256);
+            let green = Math.floor(Math.random() * 256);
+            let blue = Math.floor(Math.random() * 256);
+            g.onmouseover = () => {g.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`};
             r.appendChild(g);
         }
     }
@@ -45,11 +45,6 @@ function drawGrid(n) {
     `width: calc(75vh / ${n});
     height: calc(75vh / ${n});
     border-right: solid black;
-    border-bottom: solid black;`));
-
-    //prevent overlap of borders on the right side
-    document.querySelectorAll(".grid-right-col").forEach((g) => g.setAttribute('style', 
-    `width: calc(75vh / ${n});
-    height: calc(75vh / ${n});
-    border-bottom: solid black;`));
+    border-bottom: solid black;
+    box-sizing: border-box`));
 }
